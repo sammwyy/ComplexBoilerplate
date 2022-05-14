@@ -1,0 +1,14 @@
+# Common messages
+common:
+  no-permission: "&cNo permissions for run this command."
+  no-by-console: "&cThis command cannot be executed in the console."
+  no-by-player: "&cThis command cannot be executed by a player."
+  no-permission: "&cYou dont have permissions to run this."
+  offline-player: "&cThis player is offline."
+  world-not-found: "&cWorld {world} not found."
+  arg-must-be-boolean: "&cThe argument {arg} must be true or false."
+  arg-must-be-number: "&c{arg} is not valid number."
+
+# Commands messages
+hello: "The hello command is awesome, please use the &b/hello world &rsubcomand."
+world: "The world subcommand is awesome too"
