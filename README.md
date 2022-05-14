@@ -20,9 +20,16 @@ An advanced bukkit plugin boilerplate
 - LARGE_STRING
 - INT
 - BOOL
-- ONLINE_PLAYER
+- PLAYER
+- OFFLINE_PLAYER
 - WORLD
 - MATERIAL
 - SOUND
 
 ## Custom Exceptions
+
+- BadArgumentException
+- MaterialNotFoundException
+- PlayerOfflineException
+- SoundNotFoundException
+- WorldNotFoundException

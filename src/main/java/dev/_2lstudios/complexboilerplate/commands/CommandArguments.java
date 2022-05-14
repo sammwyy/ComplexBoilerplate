@@ -16,6 +16,7 @@ import dev._2lstudios.complexboilerplate.errors.PlayerOfflineException;
 import dev._2lstudios.complexboilerplate.errors.SoundNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.WorldNotFoundException;
 import dev._2lstudios.complexboilerplate.players.ComplexPlayer;
+import dev._2lstudios.complexboilerplate.players.OfflinePlayer;
 import dev._2lstudios.complexboilerplate.utils.BukkitUtils;
 
 public class CommandArguments {
@@ -69,7 +70,6 @@ public class CommandArguments {
         return (World) this.arguments.get(index);
     }
 
-
     public void parse(String[] args) throws BadArgumentException, PlayerOfflineException, WorldNotFoundException, MaterialNotFoundException, SoundNotFoundException {
         int i = 0;
 
@@ -116,12 +116,16 @@ public class CommandArguments {
                 }
             }
 
-            else if (type == Argument.ONLINE_PLAYER) {
+            else if (type == Argument.PLAYER || type == Argument.OFFLINE_PLAYER) {
                 Player player = Bukkit.getServer().getPlayerExact(arg);
-                if (player.isOnline()) {
+                if (player != null && player.isOnline()) {
                     value = this.plugin.getPlayerManager().getPlayer(player);
                 } else {
-                    throw new PlayerOfflineException(arg);
+                    if (type == Argument.OFFLINE_PLAYER) {
+                        value = new OfflinePlayer(this.plugin, player, arg);
+                    } else {
+                        throw new PlayerOfflineException(arg);
+                    }
                 }
             }
 

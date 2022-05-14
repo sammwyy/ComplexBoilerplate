@@ -62,6 +62,10 @@ public class ComplexPlayer extends CommandExecutor {
         return this.getName().toLowerCase();
     }
 
+    public boolean isOnline() {
+        return this.bukkitPlayer != null && this.bukkitPlayer.isOnline();
+    }
+
     public void download() {
         // Descargar datos del jugador de la DB.
         // Este metodo es llamado cuando el jugador se une al servidor.
