@@ -1,12 +1,13 @@
-![Header](https://i.imgur.com/RKgOPjp.png)
-![Dependencies](https://i.imgur.com/zbuyRh1.png)
+# ComplexBoilerplate
 
-**Mandatory:**  
-- [Jedis Wrapper](https://www.spigotmc.org/resources/jedis-wrapper.101260/)  
-- [Milkshake Bukkit](https://www.spigotmc.org/resources/milkshake-bukkit-mongodb-odm.101518/)  
+An advanced bukkit plugin boilerplate
 
-**Optional:**  
-- [Interface Maker](https://www.spigotmc.org/resources/interfacemaker.101353/) (To display party info in a GUI)
+## Features
 
-![Features](https://i.imgur.com/Jg1kQed.png)
-![ScreenShots](https://i.imgur.com/c0oyN1w.png)
+- [X] Auto-translate to player language.
+- [X] Argument parser.
+- [X] Command handler.
+- [X] Config system with caching.
+- [X] Controlled exceptions.
+- [X] Player manager with wrapped class.
+- [X] Bungee's ChatComponent API for Legay (1.8) versions.
