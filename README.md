@@ -8,6 +8,8 @@ An advanced bukkit plugin boilerplate
 - [X] Argument parser.
 - [X] Command handler.
 - [X] Config system with caching.
+- [X] Update-friendly config system.
 - [X] Controlled exceptions.
+- [X] Subcommands system.
 - [X] Player manager with wrapped class.
-- [X] Bungee's ChatComponent API for Legay (1.8) versions.
+- [X] Bungee ChatComponent API for Legay (1.8) versions.

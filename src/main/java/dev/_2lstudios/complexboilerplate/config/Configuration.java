@@ -13,6 +13,8 @@ import org.bukkit.Sound;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import dev._2lstudios.complexboilerplate.utils.BukkitUtils;
+
 public class Configuration extends YamlConfiguration {
     private File file;
     private String raw;
@@ -139,35 +141,25 @@ public class Configuration extends YamlConfiguration {
     public Material getMaterial(String key) {
         this.setIfNotExist(key);
 
-        final String name = this.getString(key);
-
-        for (final Material mat : Material.values()) {
-            if (name.equals(mat.name())) {
-                return mat;
-            }
-        }
-
-        Bukkit.getLogger().warning("Couldn't load material '" + name + "' from configuration file! (Invalid name?)");
-        return null;
-    }
-
-    public Sound getSound(final String key) {
-        this.setIfNotExist(key);
-
-        final String name = this.getString(key);
+        String name = this.getString(key);
 
         if (name.isEmpty()) {
             return null;
         }
 
-        for (final Sound sound : Sound.values()) {
-            if (name.equalsIgnoreCase(sound.name())) {
-                return sound;
-            }
+        return BukkitUtils.getMaterial(name);
+    }
+
+    public Sound getSound(final String key) {
+        this.setIfNotExist(key);
+
+        String name = this.getString(key);
+
+        if (name.isEmpty()) {
+            return null;
         }
 
-        Bukkit.getLogger().warning("Couldn't load sound '" + name + "' from configuration file! (Invalid name?)");
-        return null;
+        return BukkitUtils.getSound(name);
     }
 
     /* Custom object set */

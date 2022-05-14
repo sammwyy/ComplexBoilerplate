@@ -8,7 +8,9 @@ import org.bukkit.command.CommandSender;
 
 import dev._2lstudios.complexboilerplate.ComplexBoilerplate;
 import dev._2lstudios.complexboilerplate.errors.BadArgumentException;
+import dev._2lstudios.complexboilerplate.errors.MaterialNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.PlayerOfflineException;
+import dev._2lstudios.complexboilerplate.errors.SoundNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.WorldNotFoundException;
 import dev._2lstudios.complexboilerplate.utils.ArrayUtils;
 
@@ -48,12 +50,6 @@ public abstract class CommandListener implements CommandExecutor {
         ctx.getExecutor().sendI18nMessage(key);
     }
 
-    protected void onWorldNotFound(CommandContext ctx, String worldName) {
-        ctx.getExecutor().sendMessage(
-                ctx.getExecutor().getI18nMessage("common.world-not-found")
-                        .replace("{world}", worldName));
-    }
-
     protected void onPlayerOffline(CommandContext ctx, String playerName) {
         ctx.getExecutor().sendMessage(
                 ctx.getExecutor().getI18nMessage("common.offline-player")
@@ -64,6 +60,24 @@ public abstract class CommandListener implements CommandExecutor {
         ctx.getExecutor().sendMessage(
                 ctx.getExecutor().getI18nMessage("common.arg-must-be-" + type)
                         .replace("{arg}", value));
+    }
+
+    protected void onWorldNotFound(CommandContext ctx, String worldName) {
+        ctx.getExecutor().sendMessage(
+                ctx.getExecutor().getI18nMessage("common.world-not-found")
+                        .replace("{world}", worldName));
+    }
+
+    protected void onMaterialNotFound(CommandContext ctx, String materialName) {
+        ctx.getExecutor().sendMessage(
+                ctx.getExecutor().getI18nMessage("common.material-not-found")
+                        .replace("{material}", materialName));
+    }
+
+    protected void onSoundNotFound(CommandContext ctx, String soundName) {
+        ctx.getExecutor().sendMessage(
+                ctx.getExecutor().getI18nMessage("common.sound-not-found")
+                        .replace("{sound}", soundName));
     }
 
     // Utils
@@ -131,10 +145,14 @@ public abstract class CommandListener implements CommandExecutor {
             this.onExecute(ctx);
         } catch (PlayerOfflineException e) {
             this.onPlayerOffline(ctx, e.getUsername());
-        } catch (WorldNotFoundException e) {
-            this.onWorldNotFound(ctx, e.getWorldName());
         } catch (BadArgumentException e) {
             this.onBadArgument(ctx, e.getArg(), e.getWaiting());
+        } catch (WorldNotFoundException e) {
+            this.onWorldNotFound(ctx, e.getWorldName());
+        } catch (MaterialNotFoundException e) {
+            this.onMaterialNotFound(ctx, e.getMaterialName());
+        } catch (SoundNotFoundException e) {
+            this.onSoundNotFound(ctx, e.getSoundName());
         }
     }
 

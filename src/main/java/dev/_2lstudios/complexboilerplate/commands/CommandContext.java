@@ -6,7 +6,9 @@ import org.bukkit.entity.Player;
 
 import dev._2lstudios.complexboilerplate.ComplexBoilerplate;
 import dev._2lstudios.complexboilerplate.errors.BadArgumentException;
+import dev._2lstudios.complexboilerplate.errors.MaterialNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.PlayerOfflineException;
+import dev._2lstudios.complexboilerplate.errors.SoundNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.WorldNotFoundException;
 import dev._2lstudios.complexboilerplate.players.ComplexPlayer;
 
@@ -26,7 +28,7 @@ public class CommandContext {
         this.arguments = new CommandArguments(plugin, requiredArguments);
     }
 
-    public void parseArguments(String[] args) throws BadArgumentException, PlayerOfflineException, WorldNotFoundException {
+    public void parseArguments(String[] args) throws BadArgumentException, PlayerOfflineException, WorldNotFoundException, MaterialNotFoundException, SoundNotFoundException {
         this.arguments.parse(args);
     }
 

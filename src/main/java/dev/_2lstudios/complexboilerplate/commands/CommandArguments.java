@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import dev._2lstudios.complexboilerplate.ComplexBoilerplate;
 import dev._2lstudios.complexboilerplate.errors.BadArgumentException;
+import dev._2lstudios.complexboilerplate.errors.MaterialNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.PlayerOfflineException;
+import dev._2lstudios.complexboilerplate.errors.SoundNotFoundException;
 import dev._2lstudios.complexboilerplate.errors.WorldNotFoundException;
 import dev._2lstudios.complexboilerplate.players.ComplexPlayer;
+import dev._2lstudios.complexboilerplate.utils.BukkitUtils;
 
 public class CommandArguments {
     private ComplexBoilerplate plugin;
@@ -29,47 +34,43 @@ public class CommandArguments {
         return index < arguments.size() && index >= 0;
     }
 
-    public World getWorld(int index) {
-        if (!this.hasIndex(index)) {
-            return null;
-        }
-
-        return (World) this.arguments.get(index);
-    }
-
     public String getString(int index) {
-        if (!this.hasIndex(index)) {
-            return null;
-        }
-
+        if (!this.hasIndex(index)) return null;
         return (String) this.arguments.get(index);
     }
 
     public int getInt(int index) {
-        if (!this.hasIndex(index)) {
-            return 0;
-        }
-
+        if (!this.hasIndex(index)) return 0;
         return (int) this.arguments.get(index);
     }
 
     public boolean getBoolean(int index) {
-        if (!this.hasIndex(index)) {
-            return false;
-        }
-
+        if (!this.hasIndex(index)) return false;
         return (boolean) this.arguments.get(index);
     }
 
     public ComplexPlayer getPlayer(int index) {
-        if (!this.hasIndex(index)) {
-            return null;
-        }
-
+        if (!this.hasIndex(index)) return null;
         return (ComplexPlayer) this.arguments.get(index);
     }
 
-    public void parse(String[] args) throws BadArgumentException, PlayerOfflineException, WorldNotFoundException {
+    public Material getMaterial(int index) {
+        if (!this.hasIndex(index)) return null;
+        return (Material) this.arguments.get(index);
+    }
+
+    public Sound getSound(int index) {
+        if (!this.hasIndex(index)) return null;
+        return (Sound) this.arguments.get(index);
+    }
+
+    public World getWorld(int index) {
+        if (!this.hasIndex(index)) return null;
+        return (World) this.arguments.get(index);
+    }
+
+
+    public void parse(String[] args) throws BadArgumentException, PlayerOfflineException, WorldNotFoundException, MaterialNotFoundException, SoundNotFoundException {
         int i = 0;
 
         for (String arg : args) {
@@ -93,6 +94,10 @@ public class CommandArguments {
                 isParsingLargeString = true;
                 value = arg;
             } 
+
+            else if (type == Argument.STRING) {
+                value = arg;
+            }
             
             else if (type == Argument.BOOL) {
                 if (arg.equalsIgnoreCase("true")) {
@@ -129,8 +134,18 @@ public class CommandArguments {
                 }
             }
 
-            else if (type == Argument.STRING) {
-                value = arg;
+            else if (type == Argument.MATERIAL) {
+                value = BukkitUtils.getMaterial(arg);
+                if (value == null) {
+                    throw new MaterialNotFoundException(arg);
+                }
+            }
+
+            else if (type == Argument.SOUND) {
+                value = BukkitUtils.getSound(arg);
+                if (value == null) {
+                    throw new SoundNotFoundException(arg);
+                }
             }
 
             i++;
