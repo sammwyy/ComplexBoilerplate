@@ -13,3 +13,16 @@ An advanced bukkit plugin boilerplate
 - [X] Subcommands system.
 - [X] Player manager with wrapped class.
 - [X] Bungee ChatComponent API for Legay (1.8) versions.
+
+## Command Arguments Types
+
+- STRING
+- LARGE_STRING
+- INT
+- BOOL
+- ONLINE_PLAYER
+- WORLD
+- MATERIAL
+- SOUND
+
+## Custom Exceptions

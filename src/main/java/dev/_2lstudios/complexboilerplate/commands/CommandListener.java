@@ -80,6 +80,11 @@ public abstract class CommandListener implements CommandExecutor {
                         .replace("{sound}", soundName));
     }
 
+    protected void onException(CommandContext ctx, Exception e) {
+        e.printStackTrace();
+        ctx.getExecutor().sendI18nMessage("common.exception");
+    }
+
     // Utils
     public Command getCommandInfo() {
         return this.command;
@@ -153,6 +158,8 @@ public abstract class CommandListener implements CommandExecutor {
             this.onMaterialNotFound(ctx, e.getMaterialName());
         } catch (SoundNotFoundException e) {
             this.onSoundNotFound(ctx, e.getSoundName());
+        } catch (Exception e) {
+            this.onException(ctx, e);
         }
     }
 

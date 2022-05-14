@@ -10,6 +10,7 @@ common:
   world-not-found: "&cWorld {world} not found."
   arg-must-be-boolean: "&cThe argument {arg} must be true or false."
   arg-must-be-number: "&c{arg} is not valid number."
+  exception: "&cAn unknown error has ocurred, contact an administrator."
 
 # Commands messages
 hello: "The hello command is awesome, please use the &b/hello world &rsubcomand."
