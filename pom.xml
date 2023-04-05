@@ -1,53 +1,47 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Project information -->
-    <groupId>dev._2lstudios</groupId>
-    <artifactId>ComplexBoilerplate</artifactId>
+    <groupId>com.sammwy</groupId>
+    <artifactId>complexboilerplate</artifactId>
     <packaging>jar</packaging>
 
     <!-- Plugin Information -->
     <name>ComplexBoilerplate</name>
     <description>An advanced bukkit plugin boilerplate</description>
     <version>0.0.1</version>
-    <url>https://github.com/2lstudios-mc/ComplexBoilerplate</url>
+    <url>https://github.com/sammwyy/ComplexBoilerplate</url>
 
     <properties>
-        <author>2LStudios</author>
-        <mainClass>dev._2lstudios.complexboilerplate.ComplexBoilerplate</mainClass>
+        <author>Sammwy</author>
+        <mainClass>com.sammwy.complexboilerplate.ComplexBoilerplate</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <!-- External repositories -->
     <repositories>
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
             <id>2lstudios-repo</id>
             <url>https://ci.2lstudios.dev/plugin/repository/everything/</url>
         </repository>
         <repository>
-            <id>placeholderapi</id>
+            <id>extendedclip-repo</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
+            <id>jitpack-repo</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
     <!-- Dependencies imports -->
     <dependencies>
-        <!-- Develpoment dependencies -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.iridium</groupId>
-            <artifactId>IridiumColorAPI</artifactId>
-            <version>1.0.6</version>
-        </dependency>
         <!-- Spigot/Bukkit API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -55,7 +49,24 @@
             <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Built-in Libraries -->
+        <dependency>
+            <groupId>com.sammwy</groupId>
+            <artifactId>libchat</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sammwy</groupId>
+            <artifactId>libi18n</artifactId>
+            <version>0.0.1</version>
+        </dependency>
         <!-- Plugin soft-dependencies -->
+        <dependency>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
@@ -105,6 +116,32 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>shade</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.sammwy.libchat</pattern>
+                            <shadedPattern>${groupId}.${artifactId}.libs.libchat</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.sammwy.libi18n</pattern>
+                            <shadedPattern>${groupId}.${artifactId}.libs.libi18n</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
             </plugin>
         </plugins>
     </build>

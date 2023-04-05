@@ -1,18 +1,17 @@
-# ComplexBoilerplate
+# 🌱 Complex Boilerplate
 
 An advanced bukkit plugin boilerplate
 
 ## Features
 
-- [X] Auto-translate to player language.
-- [X] Argument parser.
-- [X] Command handler.
-- [X] Config system with caching.
-- [X] Update-friendly config system.
-- [X] Controlled exceptions.
-- [X] Subcommands system.
-- [X] Player manager with wrapped class.
-- [X] Bungee ChatComponent API for Legay (1.8) versions.
+- 🌐 Auto-translate to player language.
+- 📄 Argument parser.
+- 📦 Command handler.
+- 💻 Config system with caching.
+- ❌ Controlled exceptions.
+- 📙 Subcommands system.
+- ⭐️ Player manager with wrapped class.
+- 👀 Chat component for legacy (1.8) versions.
 
 ## Command Arguments Types
 
@@ -33,3 +32,20 @@ An advanced bukkit plugin boilerplate
 - PlayerOfflineException
 - SoundNotFoundException
 - WorldNotFoundException
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+Feel free to check [issues page](https://github.com/sammwy/ComplexBoilerplate/issues).
+
+## ❤️ Show your support
+
+Give a ⭐️ if this project helped you!
+
+Or buy me a coffeelatte 🙌
+
+[Ko-fi](https://ko-fi.com/sammwy) | [Patreon](https://patreon.com/sammwy)
+
+## 📝 License
+
+Copyright © 2023 [Sammwy](https://github.com/sammwyy)
