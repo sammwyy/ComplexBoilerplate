@@ -5,18 +5,18 @@
 
     <!-- Project information -->
     <groupId>com.sammwy</groupId>
-    <artifactId>complexboilerplate</artifactId>
+    <artifactId>BukkitBoilerplate</artifactId>
     <packaging>jar</packaging>
 
     <!-- Plugin Information -->
-    <name>ComplexBoilerplate</name>
+    <name>BukkitBoilerplate</name>
     <description>An advanced bukkit plugin boilerplate</description>
     <version>0.0.1</version>
-    <url>https://github.com/sammwyy/ComplexBoilerplate</url>
+    <url>https://github.com/sammwyy/bukkit-boilerplate</url>
 
     <properties>
         <author>Sammwy</author>
-        <mainClass>com.sammwy.complexboilerplate.ComplexBoilerplate</mainClass>
+        <mainClass>com.sammwy.boilerplate.BukkitBoilerplate</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -53,12 +53,12 @@
         <dependency>
             <groupId>com.sammwy</groupId>
             <artifactId>libchat</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.3</version>
         </dependency>
         <dependency>
             <groupId>com.sammwy</groupId>
             <artifactId>libi18n</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.6</version>
         </dependency>
         <!-- Plugin soft-dependencies -->
         <dependency>

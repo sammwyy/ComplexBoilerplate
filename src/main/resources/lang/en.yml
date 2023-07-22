@@ -1,6 +1,5 @@
 # Common messages
 common:
-  no-permission: "&cNo permissions for run this command."
   no-by-console: "&cThis command cannot be executed in the console."
   no-by-player: "&cThis command cannot be executed by a player."
   no-permission: "&cYou dont have permissions to run this."

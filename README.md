@@ -1,4 +1,4 @@
-# 🌱 Complex Boilerplate
+# 🌱 Bukkit Boilerplate
 
 An advanced bukkit plugin boilerplate
 
@@ -36,7 +36,7 @@ An advanced bukkit plugin boilerplate
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-Feel free to check [issues page](https://github.com/sammwy/ComplexBoilerplate/issues).
+Feel free to check [issues page](https://github.com/sammwy/bukkit-boilerplate/issues).
 
 ## ❤️ Show your support
 

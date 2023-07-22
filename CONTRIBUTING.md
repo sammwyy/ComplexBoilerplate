@@ -1,4 +1,4 @@
-# Contributing to Complex Boilerplate
+# Contributing to Bukkit Boilerplate
 
 The project follows a fairly specific code design pattern. Try not to break the imposed pattern. Before doing PR please check locally that your changes work and do not break any other feature or mechanic.
 
